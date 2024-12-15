@@ -2,7 +2,7 @@ import os
 from transformers import pipeline
 
 # Define the directory path
-directory_path = '/Users/neeraj/Documents/External'
+directory_path = '/path/to/your/directory'  # Replace with your desired directory
 
 # Check if the directory exists
 if os.path.exists(directory_path):
@@ -10,9 +10,10 @@ if os.path.exists(directory_path):
 else:
     print(f"The directory '{directory_path}' does not exist.")
 
-# Now, integrate your model loading logic here
+# Load a smaller model (GPT-Neo 1.3B) to avoid large downloads
+pipe = pipeline("text-generation", model="EleutherAI/gpt-neo-1.3B")
 
-pipe = pipeline("text-generation", model="EleutherAI/gpt-j-6b")
-
+# Test the model with a sample input
 result = pipe("Hello, how can I assist you today?")
 print(result)
+
