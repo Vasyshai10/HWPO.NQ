@@ -1,7 +1,11 @@
-// script.js
-
-// Function to generate text when the button is clicked
+// Define the generateText function
 function generateText() {
-    const output = document.getElementById('text-output');
-    output.innerHTML = "Hello, this is some dynamically generated text!";
+    // Ensure the element exists
+    var outputElement = document.getElementById("output");
+
+    if (outputElement) {
+        outputElement.innerHTML = "Text generated!";
+    } else {
+        console.error('Element with id "output" not found.');
+    }
 }
